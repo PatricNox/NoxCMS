@@ -13,7 +13,7 @@ namespace NoxCMS;
 /**
 * General Session class
 */
-class session
+class Session
 {
 	var $cookie_data = array();
 	var $page = array();
@@ -60,7 +60,7 @@ class session
 	}
 
 	/**
-	* Kills a session
+	* Kill a session
 	*
 	*/
 	function session_kill($new_session = true)
