@@ -1,5 +1,4 @@
 <?php
 
 $title = 'Beta';
-require __DIR__."/../theme/template/NoxCMS/setup.php";
-echo "dd";
+require __DIR__._path('/../../theme/template/NoxCMS/setup.php');
