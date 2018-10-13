@@ -1,0 +1,19 @@
+{
+    "name": "patricnox/noxcms",
+    "description": "A user-friendly CMS",
+    "type": "project",
+    "license": "GNU",
+    "authors": [
+        {
+            "name": "PatricNox",
+            "email": "eronoxsmail2@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "NoxCMS\\": "NoxCMS/"
+        }
+    }
+}
