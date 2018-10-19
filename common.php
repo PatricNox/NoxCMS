@@ -23,8 +23,8 @@ require(__DIR__.'/vendor/autoload.php');
 require($_root . 'includes/functions.' . $phpEx);
 require($_root . 'includes/startup.' . $phpEx);
 
-// Setup Routes for the
-// Staff respective User view
+// Setup routes for the site.
+// Staff respective User (default) view
 $router = new Router([
     // DEFAULT
     ''           => $_root.'/NoxCMS/controllers/web.php',
@@ -35,7 +35,8 @@ $router = new Router([
 require $router->navigate(Request::uri());
 
 #todo
+ // Redirect the user to the installer
 if (!defined('NOXCMS_INSTALLED'))
 {
-    // Redirect the user to the installer
+   
 }
