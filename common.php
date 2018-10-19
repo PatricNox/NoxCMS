@@ -16,10 +16,23 @@
 if (!defined('IN_NOXCMS'))
     exit;
 
+use NoxCMS\Client\Http\Request;
+use NoxCMS\Client\Http\Router;
+
 require(__DIR__.'/vendor/autoload.php');
 require($_root . 'includes/functions.' . $phpEx);
 require($_root . 'includes/startup.' . $phpEx);
 
+// Setup Routes for the
+// Staff respective User view
+$router = new Router([
+    // DEFAULT
+    ''           => $_root.'/NoxCMS/controllers/web.php',
+    // ADMIN CONTROL PANEL
+    'admin'      => $_root.'/NoxCMS/controllers/acp.php',
+]);
+
+require $router->navigate(Request::uri());
 
 #todo
 if (!defined('NOXCMS_INSTALLED'))

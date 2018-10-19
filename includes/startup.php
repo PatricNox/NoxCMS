@@ -14,10 +14,8 @@
 */
 
 if (!defined('IN_NOXCMS'))
-	exit;
-
-use NoxCMS\Client\Http\Request;
-use NoxCMS\Client\Http\Router;
+    exit;
+    
 
 if (!file_exists($_root . 'vendor/autoload.php'))
 {
@@ -29,10 +27,3 @@ if (!file_exists($_root . 'vendor/autoload.php'))
 
 else
     require($_root . 'vendor/autoload.php');
-
-$router = new Router([
-    ''           => $_root.'/NoxCMS/controllers/web.php',
-    'admin'      => $_root.'/NoxCMS/controllers/acp.php',
-]);
-
-require $router->navigate(Request::uri());
