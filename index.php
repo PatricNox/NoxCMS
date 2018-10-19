@@ -11,4 +11,4 @@
 define('IN_NOXCMS', true);
 $_root = (defined('NOXCMS_ROOT')) ? NOXCMS_ROOT : './';
 $phpEx = substr(strrchr(__FILE__, '.'), 1);
-include($_root . 'common.' . $phpEx);
+require($_root . 'common.' . $phpEx);
