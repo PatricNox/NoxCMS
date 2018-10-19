@@ -16,8 +16,8 @@
 if (!defined('IN_NOXCMS'))
 	exit;
 
-use NoxCMS\Http\Request;
-use NoxCMS\Http\Router;
+use NoxCMS\Client\Http\Request;
+use NoxCMS\Client\Http\Router;
 
 if (!file_exists($_root . 'vendor/autoload.php'))
 {

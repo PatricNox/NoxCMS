@@ -1,5 +1,5 @@
 <?php
-namespace NoxCMS\Http;
+namespace NoxCMS\Client\Http;
 use Exception;
 
 /**
