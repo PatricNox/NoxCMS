@@ -21,6 +21,7 @@ use NoxCMS\Client\Http\Router;
 
 require($_root . 'includes/startup.' . $phpEx);
 require($_root . 'includes/functions.' . $phpEx);
+
 // Setup routes for the site.
 // Staff respective User (default) view
 $router = new Router([
@@ -33,8 +34,6 @@ $router = new Router([
     'installer'    => $_root.'/NoxCMS/controllers/installer.php',
 ]);
 
-require $router->navigate(Request::uri());
-
  // Redirect the user to the installer
 if (!defined('NOXCMS_INSTALLED'))
 {
@@ -44,3 +43,5 @@ if (!defined('NOXCMS_INSTALLED'))
 
     $router->redirect('installer');
 }
+
+require $router->navigate(Request::uri());
