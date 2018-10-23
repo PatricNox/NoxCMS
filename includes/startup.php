@@ -38,10 +38,10 @@ else
 // User view, Admin view and the install page.
 $router = new Router([
     // DEFAULT
-    ''           => $_root.'NoxCMS/controllers/web.php',
+    ''           => $_root.'/NoxCMS/controllers/web.php',
     // ADMIN CONTROL PANEL
-    'admin'      => $_root.'NoxCMS/controllers/acp.php',
+    'admin'      => $_root.'/NoxCMS/controllers/acp.php',
     // INSTALLER
     # TODO: Route specify /install along with folder 
-    'installer'  => $_root.'NoxCMS/controllers/installer.php',
+    'installer'  => $_root.'/NoxCMS/controllers/installer.php',
 ]);
