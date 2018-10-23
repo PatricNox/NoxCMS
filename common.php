@@ -30,13 +30,19 @@ $router = new Router([
     ''           => $_root.'/NoxCMS/controllers/web.php',
     // ADMIN CONTROL PANEL
     'admin'      => $_root.'/NoxCMS/controllers/acp.php',
+    // INSTALLER
+    # TODO: Route specify /install along with folder 
+    'installer'    => $_root.'/NoxCMS/controllers/installer.php',
 ]);
 
 require $router->navigate(Request::uri());
 
-#todo
  // Redirect the user to the installer
 if (!defined('NOXCMS_INSTALLED'))
 {
-   
+    // Don't play around if we already are there
+    if (defined('IN_INSTALL') && IN_INSTALL == true)
+        return;
+
+    $router->redirect('installer');
 }

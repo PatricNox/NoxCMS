@@ -27,3 +27,8 @@ if (!file_exists($_root . 'vendor/autoload.php'))
 
 else
     require($_root . 'vendor/autoload.php');
+
+
+if (!file_exists($_root . 'install/init.php'))
+    define('NOXCMS_INSTALLED', true);
+ 

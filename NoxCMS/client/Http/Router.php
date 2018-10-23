@@ -48,4 +48,26 @@ class Router
 
         throw new Exception('No route defined for this URI.');
     }
+    /**
+     * Redirect a route to its view.
+     *
+     * @param string $uri
+     *
+     * @return string
+     */
+
+    public function redirect(string $uri): string
+    {
+        if(!headers_sent())
+        {
+             if (array_key_exists($uri, $this->routes))
+            {
+                header("Location:".$uri, TRUE, 302);
+                exit;
+            }
+        }
+        echo $uri;
+        exit('<meta http-equiv="refresh" content="0; url='.$this->routes[$uri].'" />');
+    }
+    
 }
