@@ -19,10 +19,8 @@ if (!defined('IN_NOXCMS'))
 use NoxCMS\Client\Http\Request;
 use NoxCMS\Client\Http\Router;
 
-require(__DIR__.'/vendor/autoload.php');
-require($_root . 'includes/functions.' . $phpEx);
 require($_root . 'includes/startup.' . $phpEx);
-
+require($_root . 'includes/functions.' . $phpEx);
 // Setup routes for the site.
 // Staff respective User (default) view
 $router = new Router([
