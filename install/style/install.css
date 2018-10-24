@@ -1,0 +1,47 @@
+body {
+    background: #141414;
+    padding: 0;
+    margin: 0;
+}
+
+#installer {
+    margin: 0 auto;
+    width: 50%;
+    min-height: 145vh;
+    height: auto;
+    border: 1px SOLID #29264a;
+    box-shadow: 1px 1px 14px 1px #29264a;
+}
+
+#installer #NoxLogo {
+    font-size: 24vh;
+    text-shadow: 1px 1px 14px #000000;
+    color: #5a5cc0;
+} #NoxLogo p {font-size: 12px; color:#ffffff; float:right;}
+#installer .install-wrap {
+    padding: 25px;
+    height: 40vh;
+    width: 65%;
+}
+
+#installer .install-wrap input[type="submit"] {
+    float: right;
+}
+label {
+    display: block;
+    color: #ffffff;
+    margin-top: 14px;
+}
+
+.section {
+    border-top: 1px SOLID;
+    border-bottom: 1px SOLID;
+    border-color: #5a5cc0;
+
+    color: #ffffff;
+    padding: 4px;
+
+    margin-top:12px;
+    display: block;
+    text-align: center;
+}
