@@ -8,6 +8,7 @@
 *
 */
 
+declare(strict_types=1);
 define('IN_NOXCMS', true);
 $_root = (defined('NOXCMS_ROOT')) ? NOXCMS_ROOT : './';
 $phpEx = substr(strrchr(__FILE__, '.'), 1);
