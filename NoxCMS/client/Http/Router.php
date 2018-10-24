@@ -58,7 +58,7 @@ class Router
 
     public function redirect(string $uri): string
     {
-        if(!headers_sent())
+        if (!headers_sent())
         {
              if (array_key_exists($uri, $this->routes))
             {
@@ -66,7 +66,7 @@ class Router
                 exit;
             }
         }
-        echo $uri;
+
         exit('<meta http-equiv="refresh" content="0; url='.$this->routes[$uri].'" />');
     }
     
