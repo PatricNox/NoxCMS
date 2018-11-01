@@ -16,23 +16,16 @@
 if (!defined('IN_NOXCMS'))
     exit;   
 
+// Initialise SPL autoloader
+set_include_path(get_include_path().PATH_SEPARATOR.'NoxCMS/');
+spl_autoload_extensions('.php, .inc');
+spl_autoload_register();
+
 use NoxCMS\Client\Http\Router;
 
 // Define whether the CMS is installed or not
 if (!file_exists($_root . 'install/init.php'))
     define('NOXCMS_INSTALLED', true);
-
-// Ensure composer autoload is loaded
-if (!file_exists($_root . 'vendor/autoload.php'))
-{
-    trigger_error(
-        'Composer dependencies have not been set up yet!'.
-        E_USER_ERROR
-    );
-}
-
-else
-    require($_root . 'vendor/autoload.php');
 
 // Setup the main routes for the site.
 // User view, Admin view and the install page.
