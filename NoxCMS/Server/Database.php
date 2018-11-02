@@ -65,19 +65,20 @@ class Database
         $this->DBuser = $user;
         $this->DBpass = $pass;
         $this->DBport = $port;
-        $this->Connect();
+        $this->Connect($this->DBname);
     }
     
     /**
      * Connect to the selected database.
      *
+     * @param String $database
      * @return void
      */
-    public function Connect()
+    public function Connect(string $database)
     {
         try
         {
-            $this->pdo = new PDO("mysql:host=$this->DBhost;dbname=$this->DBname;", $this->DBuser, $this->DBpass);
+            $this->pdo = new PDO("mysql:host=$this->DBhost;dbname=$database;", $this->DBuser, $this->DBpass);
             $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
         } 
 
@@ -86,7 +87,7 @@ class Database
             // Rethrow to hide connection details
             error_reporting(0);
             throw $e;
-            throw new PDOException("Could not connect to database.");
+            throw new PDOException("Could not connect to database: $database");
         }
     }
 
