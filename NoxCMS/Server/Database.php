@@ -10,6 +10,7 @@
 
 namespace NoxCMS\Server;
 use pdo;
+use Exception;
 
 /**
 * Main database handler.
@@ -20,6 +21,16 @@ use pdo;
 */
 class Database
 {
+    /**
+     * Singleton Instance.
+     * 
+     * This is temporary solution to let multiplie databases be
+     * initialised and connected too.
+     * 
+     * @var string[]
+     */
+    public static $instance;
+
     /**
      * The Configuration Variables.
      *
@@ -39,7 +50,8 @@ class Database
      */
     public function __construct(String $dbName)
     {
-        $this->DBname = $dbName;
+        $this->DBname   = $dbName;
+        self::$instance = $this;
     }
 
     /**
@@ -76,5 +88,21 @@ class Database
             throw $e;
             throw new PDOException("Could not connect to database.");
         }
+    }
+
+     /**
+     * Returns the current database.
+     *
+     * @return String
+     */
+    static function getCurrentDB(): String
+    {
+        // Get Current connected Database
+        $instance = (self::$instance) ? get_object_vars(self::$instance) : false;
+
+        if (!$instance) // Not connected to any database.
+            throw new Exception("Not connected to any database.");
+
+        return $instance['DBname'];
     }
 }
