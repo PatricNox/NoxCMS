@@ -87,14 +87,14 @@ class Database
      * Connect to the selected database.
      *
      * @param String $database
-     * @return Void
+     * @return Pdo
      */
-    public function connect(string $database): void
+    public function connect(string $database): pdo
     {
         try
         {
-            $this->pdo = new PDO("mysql:host=$this->DBhost;dbname=$database;", $this->DBuser, $this->DBpass);
-            $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+            $pdoConnection = new PDO("mysql:host=$this->DBhost;dbname=$database;", $this->DBuser, $this->DBpass);
+            $pdoConnection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
         } 
 
         catch (Exception $e)
@@ -104,6 +104,8 @@ class Database
             throw $e;
             throw new PDOException("Could not connect to database: $database");
         }
+
+        return $pdoConnection;
     }
 
      /**
