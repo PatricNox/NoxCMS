@@ -123,4 +123,23 @@ class Database
 
         return $instance['DBname'];
     }
+
+     /**
+     * Returns the current version of NoxCMS.
+     *
+     * @return String
+     */
+    public function getVersion(): String
+    {
+        // Establish temponare connection.
+        $dbConn = $this->Connect(Database::getCurrentDB());
+
+        // Select our version from Database.
+        $query = $dbConn->prepare("SELECT `version` FROM `version` LIMIT 1");
+        $result = $query->execute();
+        if (!$result)
+            throw new Exception("Version not found.");
+        
+        return $result;
+    }
 }
