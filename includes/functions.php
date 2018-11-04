@@ -42,7 +42,6 @@ function CheckInstallation(): bool
         // Users never choose CMS database names, this is 
         // all done automagically by core elsewhere.
 
-        new Database('noxcms');
         $tempConnect = new Database(Database::getCurrentDB());
 
         // Does the database exist & are the configurations correct?
