@@ -14,8 +14,8 @@ use NoxCMS\Server\Database;
 /**
 * Global path correction for UNIX, WIN and OSX.
 *
-* @param string $path 
-* @return string
+* @param String $path 
+* @return String
 */
 function _path(string $path): string
 {
