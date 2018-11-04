@@ -23,9 +23,20 @@ spl_autoload_register();
 
 use NoxCMS\Client\Http\Router;
 
+
 // Define whether the CMS is installed or not
-if (!file_exists($_root . 'install/init.php'))
-    define('NOXCMS_INSTALLED', true);
+define('NOXCMS_INSTALLED', CheckInstallation());
+
+// Load CMS if installed
+if (NOXCMS_INSTALLED === true)
+{
+    // Ensure install files remains
+    if (!file_exists($_root . 'install/init.php'))
+        die("Install files are missing.");
+
+    /// TODO: setup routes from DB
+    
+}
 
 // Setup the main routes for the site.
 // User view, Admin view and the install page.

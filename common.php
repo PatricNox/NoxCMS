@@ -17,14 +17,14 @@ if (!defined('IN_NOXCMS'))
     exit;
 
 use NoxCMS\Client\Http\Request;
-require($_root . 'includes/startup.' . $phpEx);
 require($_root . 'includes/functions.' . $phpEx);
+require($_root . 'includes/startup.' . $phpEx);
 
 // Initialise our base routes
 require $router->navigate(Request::uri());
 
  // Redirect the user to the installer
-if (!defined('NOXCMS_INSTALLED'))
+if (!defined('NOXCMS_INSTALLED') || NOXCMS_INSTALLED != true)
 {
     // Don't play around if we already are there
     if (defined('IN_INSTALL') && IN_INSTALL == true)
