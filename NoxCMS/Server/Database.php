@@ -27,14 +27,14 @@ class Database
      * This is temporary solution to let multiplie databases be
      * initialised and connected too.
      * 
-     * @var string[]
+     * @var String[]
      */
     public static $instance;
 
     /**
      * The Configuration Variables.
      *
-     * @var string[]
+     * @var String[]
      */
     private $DBhost;
     private $DBname;
@@ -45,8 +45,6 @@ class Database
     /**
      * Create a new database instance to the
      * desired database name.
-     *
-     * @return void
      */
     public function __construct(String $dbName)
     {
@@ -58,15 +56,15 @@ class Database
     /**
      * Declare database configurations.
      *
-     * @return void
+     * @return Void
      */
-    public function config(String $host, String $user, String $pass, int $port = 3306): void
+    public function setConfig(String $host, String $user, String $pass, int $port = 3306): void
     {
         $this->DBhost = $host;
         $this->DBuser = $user;
         $this->DBpass = $pass;
         $this->DBport = $port;
-        $this->Connect($this->DBname);
+        $this->connect($this->DBname);
     }
     
     /**
@@ -89,9 +87,9 @@ class Database
      * Connect to the selected database.
      *
      * @param String $database
-     * @return void
+     * @return Void
      */
-    public function Connect(string $database)
+    public function connect(string $database): void
     {
         try
         {
