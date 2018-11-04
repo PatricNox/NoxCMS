@@ -16,18 +16,17 @@ class Router
     /**
      * The routes array.
      *
-     * @var string[]
+     * @var String[]
      */
     protected $routes;
 
     /**
      * Iniate a new router instance.
      *
-     * @param array $routes
+     * @param Array $routes
      *
-     * @return void
      */
-    public function __construct(array $routes)
+    public function __construct(array $routes = [])
     {
         $this->routes = $routes;
     }
@@ -35,9 +34,9 @@ class Router
     /**
      * Direct a route to its view.
      *
-     * @param string $uri
+     * @param String $uri
      *
-     * @return string
+     * @return String
      */
     public function navigate(string $uri): string
     {
@@ -48,12 +47,13 @@ class Router
 
         throw new Exception('No route defined for this URI.');
     }
+
     /**
      * Redirect a route to its view.
      *
-     * @param string $uri
+     * @param String $uri
      *
-     * @return string
+     * @return String
      */
 
     public function redirect(string $uri): string
