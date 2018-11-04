@@ -51,6 +51,7 @@ class Database
     public function __construct(String $dbName)
     {
         $this->DBname   = $dbName;
+        $this->loadConfig();
         self::$instance = $this;
     }
 
@@ -68,6 +69,22 @@ class Database
         $this->Connect($this->DBname);
     }
     
+    /**
+     * Set database configurations from Config.
+     *
+     * @return Void
+     */
+    public function loadConfig(): void
+    {
+        $c = require('./config.php');
+        $this->SetConfig(
+            $c['database']['host'], 
+            $c['database']['username'], 
+            $c['database']['password'], 
+            $c['database']['port']
+        );
+    }
+
     /**
      * Connect to the selected database.
      *
