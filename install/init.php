@@ -35,4 +35,4 @@ if (empty($_POST['uuser']) || empty($_POST['upass'] || empty($_POST['upass2'])))
 
 // TODO: Sanity check tables for input & potentional existings
 
-$install = new Database("noxcms");;
+$install = new Database("noxcms");
