@@ -10,7 +10,7 @@
 
 namespace NoxCMS\Server;
 use pdo;
-use Exception;
+use PDOException;
 
 // TODO: Split up methods into extension class
 
@@ -99,7 +99,7 @@ class Database
             $pdoConnection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
         } 
 
-        catch (Exception $e)
+        catch (PDOException $e)
         {
             // Rethrow to hide connection details
             error_reporting(0);
@@ -121,7 +121,7 @@ class Database
         $instance = (self::$instance) ? get_object_vars(self::$instance) : false;
 
         if (!$instance) // Not connected to any database.
-            throw new Exception("Not connected to any database.");
+            throw new PDOException("Not connected to any database.");
 
         return $instance['DBname'];
     }
@@ -140,7 +140,7 @@ class Database
         $query = $dbConn->prepare("SELECT `version` FROM `version` LIMIT 1");
         $result = $query->execute();
         if (!$result)
-            throw new Exception("Version not found.");
+            throw new PDOException("Version not found.");
         
         return $result;
     }
