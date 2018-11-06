@@ -76,7 +76,7 @@ class Database
      */
     public function loadConfig(): void
     {
-        $c = require('./config.php');
+        $c = require($_SERVER['DOCUMENT_ROOT'].'/config.php');
         $this->SetConfig(
             $c['database']['host'], 
             $c['database']['username'], 
