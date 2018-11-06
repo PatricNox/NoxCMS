@@ -10,28 +10,28 @@
 <body>
     <div id="installer">
         <div class="install-wrap">
-            <div id="NoxLogo">NoxCMS</div>
+            <div id="NoxLogo"></div>
             <form action="./install/init.php" method="post">
                 <span class="section">General Settings</span>
 
-                <label for="dbname">Database Name:</label>
-                <input type="text" name="" id="dbname">
+                <label for="webname">Website Name:</label>
+                <input type="text" name="webname">
                 <label for="prefix">Table prefix:</label>
-                <input type="text" name="" id="prefix" placeholder="noxcms_">
+                <input type="text" name="prefix" placeholder="noxcms_">
 
                 <span class="section">Configuration</span>
                 <label for="dbuser">Database User:</label>
-                <input type="text" name="" id="dbuser">
+                <input type="text" name="dbuser">
                 <label for="dbpass">Database Password:</label>
-                <input type="password" name="" id="dbpass">
+                <input type="password" name="dbpass">
 
                 <span class="section">Credentials</span>
-                <label for="uuser">Admin User:</label>
-                <input type="text" name="" id="uuser">
+                <label for="uuser">Admin Username:</label>
+                <input type="text" name="uuser">
                 <label for="upass">Admin Password:</label>
-                <input type="password" name="" id="upass">
+                <input type="password" name="upass">
                 <label for="upass2">Admin Password (Repeat):</label>
-                <input type="password" name="" id="upass2">
+                <input type="password" name="upass2">
 
                 <input type="submit" value="INSTALL">
             </form>
