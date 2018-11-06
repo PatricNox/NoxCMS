@@ -42,10 +42,8 @@ function CheckInstallation(): bool
         // Users never choose CMS database names, this is 
         // all done automagically by core elsewhere.
 
-        $tempConnect = new Database(Database::getCurrentDB());
-
         // Does the database exist & are the configurations correct?
-        $dbConn = $tempConnect->Connect(Database::getCurrentDB());
+        $tempConnect = new Database(Database::getCurrentDB());
 
         // Does the database have population?
         $tempConnect->getVersion();
