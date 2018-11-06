@@ -12,6 +12,8 @@ namespace NoxCMS\Server;
 use pdo;
 use Exception;
 
+// TODO: Split up methods into extension class
+
 /**
 * Main database handler.
 *
@@ -141,5 +143,43 @@ class Database
             throw new Exception("Version not found.");
         
         return $result;
+    }
+
+     /**
+     * Queries insert/update/delete to database.
+     *
+     * @return Bool
+     */
+    public function query($query): Bool
+    {  
+        // Make sure its nothing but select/update/delete
+        $type = strtolower(strtok($query," ")); // Get first word in statement
+
+        switch ($type)
+        {
+            case 'select':
+            case 'delete':
+            case 'update':
+                break; // Continue script
+            
+            default:
+                return false;
+                break;
+        }          
+
+        // Establish temporary connection.
+        $dbConn = $this->Connect(Database::getCurrentDB());
+
+        // Run the written query towards the Database.
+        $query  = $dbConn->prepare($query);
+        $result = $query->execute();
+
+        if (!$result)
+        {
+            throw new PDOException("Could not Query!");
+            return false;
+        }
+        
+        return true;
     }
 }
