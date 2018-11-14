@@ -85,6 +85,7 @@ $install->query("
     CREATE TABLE post_body(
     post_id int AUTO_INCREMENT,
     author_id int(10) NOT NULL,
+    post_title varchar(255),
     content varchar(255),
     public tinyint(3),
     PRIMARY KEY (post_id)
@@ -150,8 +151,8 @@ $install->query("
 $install->query("
     USE noxcms;
     -- WELCOME POST
-    INSERT INTO post_body(author_id, content, public)
-    VALUES(1, 'Welcome to NoxCMS!\n\n to begin, visit /admin', 1);
+    INSERT INTO post_body(author_id, post_title, content, public)
+    VALUES(1, 'Welcome', 'Welcome to NoxCMS!\n\n to begin, visit /admin', 1);
     ");
 
 $p = $_SERVER['DOCUMENT_ROOT'];
