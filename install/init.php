@@ -34,9 +34,19 @@ if (empty($_POST['dbuser']) || empty($_POST['dbpass']))
 if (empty($_POST['uuser']) || empty($_POST['upass'] || empty($_POST['upass2'])))
     die("temp error display: Configuration settings fields not filled out");
 
+// TODO: proper sanitizing declaration
+$webname = $_POST['webname'];
+$u = $_POST['uuser'];
+$p = $_POST['upass'];
 // TODO: Run table creations from a file
 // TODO: Support "SQL updates"
 
+/** 
+ * Creation of Database
+ * 
+*/
+
+// TODO: use dbuser/dbpass on DatabaseClass->configure method
 $install = new Database("noxcms");
 
 // Create Database
@@ -48,7 +58,7 @@ $install->query("
 $install->query("
     USE noxcms;
     CREATE TABLE account(
-    id int NOT NULL,
+    id int NOT NULL AUTO_INCREMENT,
     username varchar(32) NOT NULL,
     sha_pass_hash varchar(40),
     sessionkey varchar(80),
@@ -81,19 +91,56 @@ $install->query("
     );
 ");
 
+// routes table
+$install->query("
+    USE noxcms;
+    CREATE TABLE routes(
+    route_id int NOT NULL AUTO_INCREMENT,
+    route_name varchar(255),
+    route_path varchar(255) NOT NULL,
+    controller varchar(255) NOT NULL,
+    public tinyint(3),
+    active tinyint(3),
+    PRIMARY KEY (route_id)
+    );
+");
+
 // Version table
 $install->query("
     USE noxcms;
     CREATE TABLE version(
     version int NOT NULL,
     hash varchar(255) NOT NULL,
+    webname varchar(255) NOT NULL,
     stable tinyint(3) NOT NULL,
     PRIMARY KEY (version)
     );
 ");
 
+
+/** 
+ * The Userinput process
+ * 
+*/
+// Todo: select id from account to insert _Access
 $install->query("
     USE noxcms;
-    INSERT INTO version(version, hash, stable)
-    VALUES(1, 'c8fjdkjjfk434s', 0);
+    -- VERSION & WEBNAME
+    INSERT INTO version(version, hash, webname, stable)
+    VALUES(1, 'c8fjdkjjfk434s', '$webname', 0);
+
+    -- ADMIN ACCOUNT
+    INSERT INTO account(username, sha_pass_hash)
+    VALUES('$u', '$p');
+    INSERT INTO account_access(id, staffgroup)
+    VALUES(1, 1);
+
+    -- DEFAULT ROUTES
+    INSERT INTO routes(route_name, route_path, controller, public, active)
+    VALUES
+        ('', '/', 'web', 1, 1),
+        ('admin', '/admin', 'acp', 1, 1);
 ");
+
+$p = $_SERVER['DOCUMENT_ROOT'];
+header("Location: /");
