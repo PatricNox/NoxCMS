@@ -150,7 +150,7 @@ class Database
      *
      * @return Bool
      */
-    public function query(String $query): Bool
+    public function query(String $query): array
     {  
         // Establish temporary connection.
         $dbConn = $this->Connect(Database::getCurrentDB());
@@ -165,6 +165,6 @@ class Database
             return false;
         }
         
-        return true;
+        return $query->fetchAll(PDO::FETCH_ASSOC);;
     }
 }
