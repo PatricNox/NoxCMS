@@ -150,7 +150,7 @@ class Database
      *
      * @return Bool
      */
-    public function query($query): Bool
+    public function query(String $query): Bool
     {  
         // Establish temporary connection.
         $dbConn = $this->Connect(Database::getCurrentDB());
