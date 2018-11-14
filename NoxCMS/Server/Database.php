@@ -146,27 +146,12 @@ class Database
     }
 
      /**
-     * Queries insert/update/delete to database.
+     * Queries to database.
      *
      * @return Bool
      */
     public function query($query): Bool
     {  
-        // Make sure its nothing but select/update/delete
-        $type = strtolower(strtok($query," ")); // Get first word in statement
-
-        switch ($type)
-        {
-            case 'select':
-            case 'delete':
-            case 'update':
-                break; // Continue script
-            
-            default:
-                return false;
-                break;
-        }          
-
         // Establish temporary connection.
         $dbConn = $this->Connect(Database::getCurrentDB());
 
