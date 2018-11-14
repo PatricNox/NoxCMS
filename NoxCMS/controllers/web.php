@@ -1,8 +1,7 @@
 <?php
 
 $title = 'Patrics Gaming';
-if (!NOXCMS_INSTALLED)
-    exit;
+if (NOXCMS_INSTALLED):
 ?>
 
 <html>
@@ -15,3 +14,4 @@ if (!NOXCMS_INSTALLED)
 
 <?php
 require __DIR__._path('/../../theme/template/NoxCMS/setup.php');
+endif;
