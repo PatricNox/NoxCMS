@@ -42,36 +42,15 @@
             </ul>   
         </div>
         <div class="box-wrapper">
-            <div class="box">
-            <h3 data-toggleable="true"> Heading</h3>
-            <div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at libero justo. In dui mi, laoreet vitae orci vel, pharetra viverra felis. Morbi ornare consequat felis, nec mollis sapien elementum non. Nunc id vehicula purus. Fusce consequat eros non velit tincidunt tempus. Integer quis ligula leo. Vivamus vehicula eros massa, vitae ullamcorper velit sagittis eget. 
-            </p>   </div>
-            </div>
-            
-            <div class="box">
-            <h3 data-toggleable="true"> Heading</h3>
-            <div> <p>Nunc eget tortor magna. Ut dictum velit sit amet nibh vestibulum varius. Fusce rutrum enim mi, sit amet porttitor ipsum hendrerit id. Sed pulvinar et arcu sed pretium. Fusce tristique porttitor feugiat. Integer laoreet, elit id rutrum cursus, eros dolor commodo libero, et lobortis libero risus vitae tellus. Sed tincidunt hendrerit augue vel egestas. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at libero justo. In dui mi, laoreet vitae orci vel, pharetra viverra felis. Morbi ornare consequat felis, nec mollis sapien elementum non. Nunc id vehicula purus. Fusce consequat eros non velit tincidunt tempus. Integer quis ligula leo. Vivamus vehicula eros massa, vitae ullamcorper velit sagittis eget. 
-            </p>   </div>
-            </div>
-            
-            <div class="box">
-            <h3 data-toggleable="true"> Heading</h3>
-            <div> <p>Nunc eget tortor magna. Ut dictum velit sit amet nibh vestibulum varius. Fusce rutrum enim mi, sit amet porttitor ipsum hendrerit id. Sed pulvinar et arcu sed pretium. Fusce tristique porttitor feugiat. Integer laoreet, elit id rutrum cursus, eros dolor commodo libero, et lobortis libero risus vitae tellus. Sed tincidunt hendrerit augue vel egestas. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at libero justo. In dui mi, laoreet vitae orci vel, pharetra viverra felis. Morbi ornare consequat felis, nec mollis sapien elementum non. Nunc id vehicula purus. Fusce consequat eros non velit tincidunt tempus. Integer quis ligula leo. Vivamus vehicula eros massa, vitae ullamcorper velit sagittis eget. 
-            </p>   </div>
-            </div>
-            
-            <div class="box">
-            <h3 data-toggleable="true"> Heading</h3>
-            <div> <p>Nunc eget tortor magna. Ut dictum velit sit amet nibh vestibulum varius. Fusce rutrum enim mi, sit amet porttitor ipsum hendrerit id. Sed pulvinar et arcu sed pretium. Fusce tristique porttitor feugiat. Integer laoreet, elit id rutrum cursus, eros dolor commodo libero, et lobortis libero risus vitae tellus. Sed tincidunt hendrerit augue vel egestas. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-            </div>   </div>
-        
-            <div class="box">
-            <h3 data-toggleable="true"> Heading</h3>
-            <div> <p>Nunc eget tortor magna. Ut dictum velit sit amet nibh vestibulum varius. Fusce rutrum enim mi, sit amet porttitor ipsum hendrerit id. Sed pulvinar et arcu sed pretium. Fusce tristique porttitor feugiat. Integer laoreet, elit id rutrum cursus, eros dolor commodo libero, et lobortis libero risus vitae tellus. Sed tincidunt hendrerit augue vel egestas. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at libero justo. In dui mi, laoreet vitae orci vel, pharetra viverra felis. Morbi ornare consequat felis, nec mollis sapien elementum non. Nunc id vehicula purus. Fusce consequat eros non velit tincidunt tempus. Integer quis ligula leo. Vivamus vehicula eros massa, vitae ullamcorper velit sagittis eget. 
-            </p></div>
+            <?php foreach($content as $c):?>            
+                <div class="box">
+                    <h3 data-toggleable="true"><?=$c['post_title'];?></h3>
+                    <div>
+                        <p>
+                            <?=nl2br($c['content']);?>
+                        </p>
+                     </div>
+            <?php endforeach;?>
         </div>
     </div>
     <div id="sidebar">
