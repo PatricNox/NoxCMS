@@ -50,6 +50,7 @@
                             <?=nl2br($c['content']);?>
                         </p>
                      </div>
+                </div>
             <?php endforeach;?>
         </div>
     </div>
