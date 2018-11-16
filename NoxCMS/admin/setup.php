@@ -9,6 +9,5 @@
 *
 */
 
-$title = 'NoxCMS - Admin Control Panel';
-define('AUTHORIZED', false, true);
-require __DIR__._path('/../admin/setup.php');
+// Initialise the view
+require_once __DIR__._path('/view/init.php');

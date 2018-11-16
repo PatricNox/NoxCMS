@@ -1,0 +1,62 @@
+/*************/
+/* NoxCMS ACP
+/*
+/*************/
+body {
+    background: #545152;
+    margin: 0;
+    padding: 8px;
+}
+
+#_wrap {
+    width: 100%;
+    min-height: 120px;
+    height: auto;
+
+    background: #2a444e;
+}
+
+.top_tab {
+    padding: 6px;
+}
+
+#logo {
+    background: url('/theme/template/NoxCMS/images/NoxCMS.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 50px;
+    height: 45px;
+}
+
+/** Auth login **/
+#auth_des {
+    margin: 0 auto;
+    margin-top: 12px;
+    
+}
+/** Navigation topbar - Horiz **/
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    border-radius: 2%;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
