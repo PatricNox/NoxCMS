@@ -140,7 +140,11 @@ $install->query("
     INSERT INTO routes(route_name, route_path, controller, public, active)
     VALUES
         ('', '/', 'web', 1, 1),
-        ('admin', '/admin', 'acp', 1, 1);
+        ('admin', '/admin', 'acp', 1, 1),
+        ('home', '/', 'web', 1, 1),
+        ('register', '/register', 'web', 1, 1),
+        ('forum', '/forum', 'web', 1, 1)
+        ;
 ");
 
 
