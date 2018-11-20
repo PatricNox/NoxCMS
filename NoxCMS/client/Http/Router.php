@@ -38,8 +38,12 @@ class Router
      *
      * @return String
      */
-    public function navigate(string $uri): string
+    public function navigate(string $uri)
     {
+        // Ignore $_GET variables
+        $uri = explode("?", $uri);
+        $uri = $uri[0];
+
         if (array_key_exists($uri, $this->routes))
         {
             return $this->routes[$uri];
@@ -60,14 +64,17 @@ class Router
     {
         if (!headers_sent())
         {
-             if (array_key_exists($uri, $this->routes))
+            // Ignore $_GET variables
+            $uri = explode("?", $uri);
+            $real = ($uri[1]) ? $uri[0].=$uri[1] : $uri[0];
+             if (array_key_exists($uri[0], $this->routes))
             {
-                header("Location:".$uri, TRUE, 302);
+                header("Location:".$real, TRUE, 302);
                 exit;
             }
         }
 
-        exit('<meta http-equiv="refresh" content="0; url='.$this->routes[$uri].'" />');
+        exit('<meta http-equiv="refresh" content="0; url='.$this->routes[$uri[0]].'" />');
     }
     
 }
