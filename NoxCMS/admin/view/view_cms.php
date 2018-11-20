@@ -1,5 +1,5 @@
 <?php foreach($posts as $c):?>
-    <form method="GET" action="/NoxCMS/admin/inc/posthandler.php">            
+    <form method="POST" action="/NoxCMS/admin/inc/posthandler.php">            
         <div class="postbox">
             <h3>Title: <input type="text" name="update_post_title" value="<?=$c['post_title'];?>"/></h3>
             <div>
