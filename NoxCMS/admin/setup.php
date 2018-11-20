@@ -9,5 +9,8 @@
 *
 */
 
+// Attach content from Database
+$posts = $cms->query("SELECT * FROM post_body");
+
 // Initialise the view
 require_once __DIR__._path('/view/init.php');
