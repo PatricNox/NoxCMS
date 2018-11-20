@@ -50,80 +50,67 @@
              <li>
                 <a href="#">Geoff Johns Partners with Earth-2 Comics </a>
             </li>
-    <li>
-    <a href="#">
-
-        Doctor Who, Torchwood Kick Off BBC America HD
-
-    </a>
-    </li>
-    <li>
-    <a href="#">
-
-        Blue Water to Publish Logan's Run Comics
-
-    </a>
-    </li>
-    <li class="bg-none">
-    <a href="#">
-
-        Online Registration for Impact University Now Open
-
-    </a>
-    </li>
-
-    </ul>
-        </div>
+            <li>
+                <a href="#"> Doctor Who, Torchwood Kick Off BBC America HD</a>
+            </li>
+            <li>
+                <a href="#"> Blue Water to Publish Logan's Run Comics </a>
+            </li>
+            <li class="bg-none">
+                <a href="#"> Online Registration for Impact University Now Open  </a>
+            </li>
+        </ul>
+    </div>
         <div id="Serverbar">
             <h2><img src="theme/template/NoxCMS/img/23.png" alt="icon" /> Serverlist</h2>
                     
             <div id="servers">
                 <ul class="list-custom-1">
+                    <li>
+                        <a href="#">
+                            <span class="col-1">01.</span>
+                            <span class="col-2">
+                                <span class="text-title">Superb DropGaming Edition</span>
+                                                    To make it all work, you need to fill it up, cuz iam a pro lelelelelel
 
-    <li>
-    <a href="#">
-        <span class="col-1">01.</span>
-        <span class="col-2">
-            <span class="text-title">Superb DropGaming Edition</span>
-                                To make it all work, you need to fill it up, cuz iam a pro lelelelelel
+                                <span class="link-text">_</span>
+                            </span>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <span class="col-1">02.</span>
+                            <span class="col-2">
+                                <span class="text-title">Superb DropGaming Edition</span>
+                                                    To make it all work, you need to fill it up, cuz iam a pro lelelelelel
 
-            <span class="link-text">_</span>
-        </span>
-    </a>
-    </li>
-    <li>
-        <li>
-    <a href="#">
-        <span class="col-1">02.</span>
-        <span class="col-2">
-            <span class="text-title">Superb DropGaming Edition</span>
-                                To make it all work, you need to fill it up, cuz iam a pro lelelelelel
+                                <span class="link-text">_</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="col-1">03.</span>
+                            <span class="col-2">
+                                <span class="text-title">Superb DropGaming Edition</span>
+                                                    To make it all work, you need to fill it up, cuz iam a pro lelelelelel
 
-            <span class="link-text">_</span>
-        </span>
-    </a>
-    </li> <li>
-    <a href="#">
-        <span class="col-1">03.</span>
-        <span class="col-2">
-            <span class="text-title">Superb DropGaming Edition</span>
-                                To make it all work, you need to fill it up, cuz iam a pro lelelelelel
+                                <span class="link-text">_</span>
+                            </span>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <span class="col-1">04.</span>
+                            <span class="col-2">
+                                <span class="text-title">Superb Edition</span>
+                                                    To make it all work, you need to fill it up
 
-            <span class="link-text">_</span>
-        </span>
-    </a>
-    </li> <li>
-    <a href="#">
-        <span class="col-1">04.</span>
-        <span class="col-2">
-            <span class="text-title">Superb Edition</span>
-                                To make it all work, you need to fill it up
-
-            <span class="link-text">_</span>
-        </span>
-    </a>
-    </li>
-    </ul>
+                                <span class="link-text">_</span>
+                            </span>
+                        </a>
+                    </li>
+                 </ul>
             </div>
         </div>
         
@@ -133,11 +120,9 @@
                 <div class="boxIndent-bg"></div>
             </div>
         </div>
-    <div class="moduletable">
-
-    <a href="#">
-    <img class="indent-top-banner" alt="" src="theme/template/NoxCMS/img/banner.jpg"></img>
-    </a>
-
-    </div>	
+        <div class="moduletable">
+                <a href="#">
+                <img class="indent-top-banner" alt="" src="theme/template/NoxCMS/img/banner.jpg"></img>
+                </a>
+        </div>	
     </div>
