@@ -31,7 +31,12 @@ if (!$_GET) // index view (no subpage)
                 foreach ($_GET as $page => $uri)
                 {
                     switch ($page)
-                    {                        
+                    {
+                        case 'pages':
+                            $pages = $cms->query("SELECT * FROM routes WHERE route_id > 2");
+                            require __DIR__._path('/view_pages.php');
+                            break;
+                        
                         default:
                             // Attach content from Database
                             $posts = $cms->query("SELECT * FROM post_body");
