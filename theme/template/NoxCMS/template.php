@@ -1,22 +1,3 @@
-<div id="main_wrapper"> 
-    <div id="artwork1"></div>
-    <div id="artwork3"></div>
-    <div id="artwork4"></div>
-    <div id="artwork5"></div>
-    <div id="header"><span><?=$title?></span></div>
-    <div id="button_bar">
-        <ul>
-            <li><a href="#" id="on">Home</a></li>
-            <li><a href="#">Register</a></li>
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Forum</a></li>
-            <li><a href="#">Info</a></li>
-            <li><a href="#">Videos</a></li>
-            <li><a href="#">Games</a></li>
-            <li><a href="#">Features</a></li>
-            <li><a href="#">News</a></li>
-        </ul>
-    </div>
     <div id="main_content">
         <div id="navbar2">
             <ul>
