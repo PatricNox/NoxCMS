@@ -29,13 +29,23 @@ body {
     height: 45px;
 }
 
-/** Auth login **/
+h1 {
+    color: #fff;
+    text-shadow: 1px 1px 1px #2d454d;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+/** Auth login
+--------------------------------------------- */
 #auth_des {
     margin: 0 auto;
     margin-top: 12px;
     
 }
-/** Navigation topbar - Horiz **/
+
+/** Navigation topbar - Horiz 
+--------------------------------------------- */
 ul {
     list-style-type: none;
     margin: 0;
@@ -59,4 +69,83 @@ li a {
 
 li a:hover {
     background-color: #111;
+}
+/** ACP Body
+--------------------------------------------- */
+.acp_body {
+    padding: 12px;
+}
+
+/** PostBox
+--------------------------------------------- */
+.postbox {
+    width: 400px;
+    min-height: 240px;
+    height: auto;
+    background: #8c797921;
+    color: #ffff;
+    text-shadow: 1px 1px 1px #000;
+}
+
+.postbox h3 {
+    background: #a7a7a7;
+    padding: 3px;
+    margin-bottom: 0;
+}
+
+.postbox div {
+    padding: 4px;
+    
+}
+
+#table {
+    width: auto;
+}
+
+/* Tables
+--------------------------------------------- */
+table {
+    border-collapse: initial;
+    border-spacing: 2px;
+		font-family: Arial,sans-serif;
+}
+table tr.toggle-row {
+    display: none;
+}
+
+table.table1 {
+    border: 1px solid #002A4E;
+    background: #000B1C;
+}
+
+table.table1 thead tr {
+	border-bottom: 1px solid #006BD4;
+}
+
+table.table1 thead th {
+	padding: 4px 0 5px 3px;
+}
+
+
+table.table1 tbody th {
+	background: #000208 no-repeat scroll right -322px top -2px;
+	border: 1px solid #002A4E!important;
+	color: #F0C000;
+  padding: 10px 5px;
+  text-align: left;
+  font-weight: bold;
+  position:relative;
+}
+
+table.table1 thead th {
+	background: #000208 no-repeat scroll right -322px top -2px;
+	border: 1px solid #002A4E!important;
+	color: #F0C000!important;
+  padding: 10px 5px;
+  text-align: left;
+  font-weight: bold;
+}
+table.table1 tbody tr {
+	border-width: 1px;
+	border-color: #00293F;
 }
