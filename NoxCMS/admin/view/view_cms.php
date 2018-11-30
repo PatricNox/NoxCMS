@@ -17,3 +17,32 @@
         </span>
     </form>
 <?php endforeach;?>
+
+<div 
+    style="    float: right;
+    width: 400px;
+    height: auto;
+    position: absolute;
+    top: 12vh;
+    right: 4vh;">
+ <form method="POST" action="/test.php">            
+            <div class="postbox" id="table">
+        <table class="table1">
+        <tr>
+            <th>Theme Name</th>
+            <th>Public</th>
+            <th>Default</th
+        </tr>
+        <tr>
+            <td>NoxCMS Gaming</td>
+            <td><input type="checkbox" checked></td> 
+            <td><input type="submit" name="d" value="Set Default Theme"></td>
+        </tr>
+        <tr>
+            <td>NoxCMS Blog</td>
+            <td><input type="checkbox" name="public"></td> 
+            <td><input type="submit" name="create_p" value="Set Default Theme"></td>
+        </tr>
+        </table>
+    </div>
+    </form>

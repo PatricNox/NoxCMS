@@ -1,6 +1,6 @@
 <?php
 
-$title = 'Patrics Gaming';
+$title = 'YRGO';
 if (NOXCMS_INSTALLED):
 ?>
 

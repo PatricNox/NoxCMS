@@ -1,0 +1,224 @@
+/**********************
+*                     *
+*  CyberLink Theme    *
+*       - Noxies.info *
+*                     *
+*     www.YRGO.se     *
+***********************/
+*, ::after, ::before { box-sizing: border-box;}
+* {transition: all 0.25s ease;}
+.content article a:visited, article a {
+    color: rgb(192, 158, 5);
+    text-shadow: 1px 1px 1px #000;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+}
+
+a {
+    text-decoration: none;
+    background-color: transparent;
+}
+
+/* States */
+.active {
+    border: 1px SOLID green;
+    padding: 4px;
+}
+
+/* Navigation */
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+ul { 
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.navbar-nav a, .navbar-nav a:visited { color: #000;}
+.navbar-nav a:hover { color: #19191ab9;}
+
+.navlink {
+    color: rgba(0,0,0,.5);
+    padding: .5rem 1rem;
+}
+
+.navbar {
+    background-color: #e4e4e4;;
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+   
+    padding: .5rem 1rem;
+    border-bottom: 1px SOLID rgba(0, 0, 0, 0.288);
+}
+
+.navbar-brand {
+    color: rgba(0,0,0,.9);
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+
+.navbar-nav {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.cp {
+    margin-left: auto;
+}
+
+.next-ucp   { background: rgb(53, 3, 3); padding: 12px;}
+.next-ucp a { color: #f8f9fa !important;}
+.next-ucp:hover { color: #212529 !important; font-size: 21px;}
+
+/* DropDown Styling */
+.user-profile {
+    background: #212529;
+    color: #f8f9fa;
+
+    padding: 12px;
+    width: 152px;
+
+    position: relative;
+    display: inline-block;
+}
+
+.dd-content  {
+    display: none;
+    left: 0;
+    position: absolute;
+    background: #212529;
+    min-width: 152px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.user-profile span { border-bottom: 1px SOLID #1d960f; }
+.user-profile:hover .dd-content { display: block; }
+.user-profile a, .user-profile a:visited {color: #f8f9fa !important;}
+.user-profile a:hover {color: #aaaaaa !important;}
+.user-profile ul { list-style-type: none; margin: 0; padding: 0;}
+.user-profile li {
+    padding: 4px;
+    padding-bottom: 12px;
+    margin-top: 1px;
+    margin-bottom: 12px;
+    border-bottom: 1px SOLID #059a2cd1;
+} .user-profile ul:last-child { margin-bottom: 14px;}
+
+/* Content */
+.content h1, .content h2, .content h3, .content h4 {
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: .5rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    text-shadow: 1px 1px 4px #000;
+    color: #d8c008;
+ }
+
+.content {
+    opacity: 0;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+
+    padding-top: 3rem!important;
+    padding-bottom: 3rem!important;
+}
+
+
+.content-wrapper {
+    width: auto;
+    min-height: 200px;
+    height: auto;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+/* Panels */
+
+.panel {
+    box-sizing: border-box;
+    border-radius: 1px;
+    border-width: 1px;
+    border-style: solid;
+    padding: 20px;
+    color: #f8f9fa !important;
+
+    background-image:  radial-gradient(ellipse 100px 50px at top center , rgb(51, 51, 51) 0%, #202422 450px);
+    border: 2px solid #ffaf06;
+    box-shadow: 1px 1px 21px 4px #96660f;
+}
+
+.panel h1,.panel h2,.panel h3, .panel h4 {
+     color: inherit; 
+     border-bottom: 1px SOLID #1d960f;
+}
+
+/* Forms */
+
+.inputbox {
+	background-color: rgba(0, 0, 0, 0.59);
+	border-color: #00576f;
+	color: #CCC;
+    transition: border 0.2s;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.inputbox:hover, .inputbox:focus, select:hover, select:focus {
+    border-color: #ffcc00!important;
+    box-shadow: 0 0 10px rgba(240, 192, 0, 0.24) inset;
+}
+
+select {
+    padding: 6px;
+    background: rgba(0, 0, 0, 0.59);
+    border: 1px solid #00576f;
+    transition: border 0.2s;
+}
+
+option {
+  background: #000;
+}
+
+.form {padding: 9px;}
+input {margin-top: 4px;}
+
+/* Security measurements */
+textarea h2, textarea h3, textarea h4, textarea h5,
+textarea div { display: none;}
