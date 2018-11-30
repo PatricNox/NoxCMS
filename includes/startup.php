@@ -4,7 +4,7 @@
 *
 * This file handles the initialisation of the NoxCMS Core.
 *
-* @CopyRight (c) PatricNox <https://PatricNox.info>
+* @author PatricNox <hello@PatricNox.info>
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
