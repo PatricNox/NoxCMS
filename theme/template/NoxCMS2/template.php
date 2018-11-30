@@ -1,163 +1,132 @@
-<div id="main_content">
-		
-	
-	<div id="navbar2">
-            <ul>
-                <li><a href="#">PC</a></li>
-                <li><a href="#">PS2</a></li>
-                <li><a href="#">PS3</a></li>
-                <li><a href="#">XBOX 360</a></li>
-                <li><a href="#">PSP</a></li>
-                <li><a href="#">GBA</a></li>
-                <li><a href="#">DS</a></li>
-                <li><a href="#">MOBILE</a></li>
-                <li><a href="#">WII</a></li>
-                <li><a href="#">MMPOG</a></li>
-            </ul>   
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="theme/template/noxcms/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="theme/template/noxcms/style.css">
+    <link rel="stylesheet" href="theme/template/noxcmscss/animate.css"/>
+    <script src="theme/template/noxcms/js/jquery-2.1.0.js"></script>
+    <script src="theme/template/noxcms/js/bootstrap.js"></script>
+    <script src="theme/template/noxcms/js/typer.js"></script>
+    <script src="theme/template/noxcms/js/blocs.js"></script>
+    <link rel='stylesheet' href='theme/template/noxcms/css/et-line.min.css'/>
+    <link rel='stylesheet' href='theme/template/noxcms/css/font-awesome.min.css'/>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat&subset=latin,latin-ext' rel='stylesheet'
+          type='text/css'>
+
+    <title><?=$title?></title>
+	<style type="text/css">
+	.auto-style1 {
+		font-family: Montserrat;
+		color: #337AB7;
+	}
+	</style>
+</head>
+<body>
+<div class="page-container">
+
+    <div class="bloc bgc-carmine-pink d-bloc" id="nav-bloc">
+        <div class="container">
+            <nav class="navbar row">
+                <div class="navbar-header">
+                    <button id="nav-toggle" type="button" class="ui-navbar-toggle navbar-toggle" data-toggle="collapse"
+                            data-target=".navbar-1">
+                        <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
+                            class="icon-bar"></span><span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse navbar-1">
+                    <ul class="site-navigation nav navbar-nav">
+                         <?php foreach ($links as $r): ?>
+                            <li>
+                                <a href="<?=$r['route_path']?>">
+                                    <?=ucfirst($r['route_name'])?>
+                                </a>
+                            </li>
+                        <?php endforeach;?>
+                    </ul>
+                </div>
+            </nav>
+        </div>
     </div>
-    <div id="navbar3">
-            <ul>
-                <li><a href="#">Cheats</a></li>
-                <li><a href="#">Videos</a></li>
-                <li><a href="#">Community</a></li>
-                <li><a href="#">Forums</a></li>
-                <li><a href="#">Downloads</a></li>
-            </ul>   
+    <!-- Navigation Bloc END -->
+
+    <!-- header -->
+    <div class="bloc bgc-outer-space bg-city-overlay d-bloc" id="header">
+        <div class="container bloc-xl">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3 class="text-center mg-lg tc-white">Welcome to <?=$title?></h3>
+                    
+                    <p class="text-center  mg-lg animated fadeInUp animDelay02">
+                        <p>&nbsp;</p>
+					<p class="text-center  mg-lg animated fadeInUp animDelay02">
+                        
+                        
+                    </p>
+					<p class="text-center  mg-lg animated fadeInUp animDelay02">
+                        <img height="320" src="https://PatricNox.info/assets/NoxCMS.png" width="320"></p>
+
+                    <div class="text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
 	
-			<div class="box-wrapper">
+    <div class="bloc l-bloc bgc-white" id="services" style="left: -1px; top: -150px">
+        <div class="container bloc-lg">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="text-center">
+        </div>
+    </div>
                 <?php foreach($content as $c):?>            
-                    <div class="box">
-                        <h3 data-toggleable="true"><?=$c['post_title'];?></h3>
-                        <div>
-                            <p>
-                                <?=nl2br($c['content']);?>
-                            </p>
+                    <div class="bloc bgc-carmine-pink d-bloc" id="5jaar">
+                        <div class="container bloc-sm">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h2 class="text-center mg-md ">
+                                        <?=$c['post_title'];?>
+                                    </h2>
+
+                                    <p class="sub-heading text-center">
+                                        <?=nl2br($c['content']);?></p>
+                                </div>
+                            </div>
+                            </div>
                         </div>
                     </div>
                 <?php endforeach;?>
-            </div>
-            <div id="sidebar">
-                <form id="search_form" action="" method="POST" autocomplete="off">
-                        <input type="text" name="search" placeholder='Search on the site..' id="search"><br />
-                 </form>
-            </div>
-			
-			
-            
-            <div id="infobar">
-                <h2><img src="theme/template/noxcms/img/23.png" alt="icon" /> Recent News</h3>
-                    <ul class="custom-list">
+    
 
-    <li>
-        <a href="#">
-
-            IDW Announces Robert Bloch Collection
-
-        </a>
-    </li>
-    <li>
-        <a href="#">
-
-            Geoff Johns Partners with Earth-2 Comics
-
-        </a>
-    </li>
-    <li>
-        <a href="#">
-
-            Doctor Who, Torchwood Kick Off BBC America HD
-
-        </a>
-    </li>
-    <li>
-        <a href="#">
-
-            Blue Water to Publish Logan's Run Comics
-
-        </a>
-    </li>
-    <li class="bg-none">
-        <a href="#">
-
-            Online Registration for Impact University Now Open
-
-        </a>
-    </li>
-
-</ul>
-            </div>
-            <div id="Serverbar">
-                <h2><img src="theme/template/noxcms/img/23.png" alt="icon" /> Serverlist</h2>
-                		
-				<div id="servers">
-                  <ul class="list-custom-1">
-
-    <li>
-        <a href="#">
-            <span class="col-1">01.</span>
-            <span class="col-2">
-                <span class="text-title">Superb  Edition</span>
-                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore error sapiente quaerat eum odit, fugiat eligendi? Enim, doloremque? Dolore eos quae consectetur quaerat harum asperiores deleniti saepe quasi maxime reiciendis.
-
-                <span class="link-text">_</span>
-            </span>
-        </a>
-    </li>
-    <li>
-          <li>
-        <a href="#">
-            <span class="col-1">02.</span>
-            <span class="col-2">
-                <span class="text-title">Superb  Edition</span>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore vel beatae voluptas vero illo omnis provident corrupti aperiam temporibus repellat iste maiores ducimus, nihil sapiente cumque nobis harum nulla odio?
-
-                <span class="link-text">_</span>
-            </span>
-        </a>
-    </li> <li>
-        <a href="#">
-            <span class="col-1">03.</span>
-            <span class="col-2">
-                <span class="text-title">Superb  Edition</span>
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui consectetur aperiam repellendus, eos labore voluptates dolore, aliquam aspernatur perferendis ipsum possimus delectus voluptate hic iste ratione ea dolores, cum facere.
-
-                <span class="link-text">_</span>
-            </span>
-        </a>
-    </li> <li>
-        <a href="#">
-            <span class="col-1">04.</span>
-            <span class="col-2">
-                <span class="text-title">Superb Edition</span>
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione aut adipisci maiores molestias, dolorem similique perspiciatis ullam necessitatibus temporibus, velit nemo iusto reiciendis qui tenetur autem! Vero impedit alias eveniet!
-
-                <span class="link-text">_</span>
-            </span>
-        </a>
-    </li>
-</ul>
+                         </div>
+                    </div>
                 </div>
             </div>
-			
-			<div id="Videobar">
-                <h2><img src="theme/template/noxcms/img/23.png" alt="icon" /> Video Picks    <font size="2px" style=padding-left:50px;><a href="#"> See More </a></font></h2>
-                <div id="videos">
-                    <div class="boxIndent-bg">
+        </div>
+    </div>
+	
+    <!-- NOG INVULLEN -->
+    <!-- NOG INVULLEN -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terug knopje -->
+    <a class="bloc-button btn btn-d scrollToTop" onclick="scrollToTarget('1')"><span
+            class="fa fa-chevron-up"></span></a>
 
    
+   <!-- Credits -->
+    </div>
 
 </div>
+</body>
 
-
-                </div>
-            </div>
-		<div class="moduletable">
-
-    <a href="#">
-        <img class="indent-top-banner" alt="" src="theme/template/noxcms/img/banner.jpg"></img>
-    </a>
-
-</div>	
-		</div>
-		
+</html>
