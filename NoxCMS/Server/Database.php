@@ -95,7 +95,8 @@ class Database
     {
         try
         {
-            $pdoConnection = new PDO("mysql:host=$this->DBhost;dbname=$database;", $this->DBuser, $this->DBpass);
+            $pdoConnection = new PDO("mysql:host=$this->DBhost; dbname=$database;", $this->DBuser, $this->DBpass, 
+                array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'")); 
             $pdoConnection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
         } 
 
