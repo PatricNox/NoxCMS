@@ -24,6 +24,7 @@ require($_root . 'includes'.DS.'startup.' . $phpEx);
 
 // Initialise our base routes
 require $router->navigate(Request::uri());
+\Patchwork\Utf8\Bootup::filterRequestUri(); 
 
  // Redirect the user to the installer
 if (!defined('NOXCMS_INSTALLED') || NOXCMS_INSTALLED != true)
