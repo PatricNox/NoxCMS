@@ -1,5 +1,5 @@
 <?php
-namespace NoxCMS\Client\Http;
+namespace noxcms\Client\Http;
 
 /**
 *

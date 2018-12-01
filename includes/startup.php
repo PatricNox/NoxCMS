@@ -16,11 +16,6 @@
 if (!defined('IN_NOXCMS'))
     exit;   
 
-// Initialise SPL autoloader
-set_include_path(get_include_path().PATH_SEPARATOR.'NoxCMS/');
-spl_autoload_extensions('.php, .inc');
-spl_autoload_register();
-
 use NoxCMS\Client\Http\Router;
 use NoxCMS\Server\Database;
 

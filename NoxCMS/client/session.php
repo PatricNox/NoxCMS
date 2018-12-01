@@ -8,7 +8,7 @@
 *
 */
 
-namespace NoxCMS;
+namespace noxcms;
 
 /**
 * General Session class

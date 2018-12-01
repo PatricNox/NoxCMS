@@ -17,8 +17,10 @@ if (!defined('IN_NOXCMS'))
     exit;
 
 use NoxCMS\Client\Http\Request;
-require($_root . 'includes/functions.' . $phpEx);
-require($_root . 'includes/startup.' . $phpEx);
+define('DS', DIRECTORY_SEPARATOR);
+require($_root . 'vendor'.DS.'autoload.' . $phpEx);
+require($_root . 'includes'.DS.'functions.' . $phpEx);
+require($_root . 'includes'.DS.'startup.' . $phpEx);
 
 // Initialise our base routes
 require $router->navigate(Request::uri());

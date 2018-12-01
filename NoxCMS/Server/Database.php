@@ -8,7 +8,7 @@
 *
 */
 
-namespace NoxCMS\Server;
+namespace noxcms\Server;
 use pdo;
 use PDOException;
 
@@ -103,7 +103,7 @@ class Database
         catch (PDOException $e)
         {
             // Rethrow to hide connection details
-            error_reporting(0);
+            error_reporting(1);
             throw $e;
             throw new PDOException("Could not connect to database: $database");
         }
