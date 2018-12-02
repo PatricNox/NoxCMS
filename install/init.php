@@ -46,8 +46,10 @@ $p = $_POST['upass'];
  * 
 */
 
+define("NOXCMS_DATABASE", "noxcms");
+
 // TODO: use dbuser/dbpass on DatabaseClass->configure method
-$install = new Database("noxcms");
+$install = new Database(NOXCMS_DATABASE);
 
 // Create Database
 $install->query("
@@ -67,7 +69,7 @@ $install->query("
     online tinyint(3),
     PRIMARY KEY (id)
     );
-");
+", NOXCMS_DATABASE);
 
 // Account Access table
 $install->query("
@@ -77,7 +79,7 @@ $install->query("
     staffgroup tinyint(3) NOT NULL,
     PRIMARY KEY (id)
     );
-");
+", NOXCMS_DATABASE);
 
 // post_body table
 $install->query("
@@ -90,7 +92,7 @@ $install->query("
     public tinyint(3),
     PRIMARY KEY (post_id)
     );
-");
+", NOXCMS_DATABASE);
 
 // routes table
 $install->query("
@@ -104,7 +106,7 @@ $install->query("
     active tinyint(3),
     PRIMARY KEY (route_id)
     );
-");
+", NOXCMS_DATABASE);
 
 // Version table
 $install->query("
@@ -116,7 +118,7 @@ $install->query("
     stable tinyint(3) NOT NULL,
     PRIMARY KEY (version)
     );
-");
+", NOXCMS_DATABASE);
 
 
 /** 
@@ -145,7 +147,7 @@ $install->query("
         ('register', '/register', 'web', 1, 1),
         ('forum', '/forum', 'web', 1, 1)
         ;
-");
+", NOXCMS_DATABASE);
 
 
 /** 
@@ -160,7 +162,7 @@ $install->query("
     (1, 'Welcome', 'Welcome to NoxCMS!\n\n to begin, visit /admin', 1),
     (1, 'About', 'Did you know that this CMS is made by github.com/PatricNox?', 1),
     (1, 'Fun fact', 'There are no third party libraries used so far whatsoever! \n\neven though it surely would\'ve helped alot..', 1);
-    ");
+    ", NOXCMS_DATABASE);
 
 $p = $_SERVER['DOCUMENT_ROOT'];
 header("Location: /");
