@@ -66,7 +66,7 @@ class Database
         $this->DBuser = $user;
         $this->DBpass = $pass;
         $this->DBport = $port;
-        $this->connect($this->DBname);
+        $this->connect();
     }
     
     /**
@@ -91,14 +91,17 @@ class Database
      * @param String $database
      * @return Pdo
      */
-    public function connect(string $database)
+    public function connect(string $database = "")
     {
         // instantiate connection for later return
         $pdoConnection = null;
 
         try // to connect
         {
-            $pdoConnection = new PDO("mysql:host=$this->DBhost; dbname=$database;", $this->DBuser, $this->DBpass, 
+            // Check if the database name is set when building the PDO's DNS as
+            // we may need to use the connector when no database is targeted.
+            $dns = "mysql:host=$this->DBhost;" . empty($database) ?: "dbname=$database";
+            $pdoConnection = new PDO($dns, $this->DBuser, $this->DBpass, 
                 array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'")); 
             $pdoConnection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
         } 
@@ -149,10 +152,10 @@ class Database
      *
      * @return Bool
      */
-    public function query(String $query): array
+    public function query(String $query, String $targetDB = ""): array
     {  
         // Establish temporary connection.
-        $dbConn = $this->Connect(Database::getCurrentDB());
+        $dbConn = $this->Connect($targetDB);
 
         // Run the written query towards the Database.
         $query  = $dbConn->prepare($query);
