@@ -91,24 +91,22 @@ class Database
      * @param String $database
      * @return Pdo
      */
-    public function connect(string $database): pdo
+    public function connect(string $database)
     {
-        try
+        // instantiate connection for later return
+        $pdoConnection = null;
+
+        try // to connect
         {
             $pdoConnection = new PDO("mysql:host=$this->DBhost; dbname=$database;", $this->DBuser, $this->DBpass, 
                 array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'")); 
             $pdoConnection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
         } 
 
-        catch (PDOException $e)
-        {
-            // Rethrow to hide connection details
-            error_reporting(1);
-            throw $e;
-            throw new PDOException("Could not connect to database: $database");
-        }
+        // Avoid printing database info at this point.
+        catch (PDOException $e){}
 
-        return $pdoConnection;
+        return ($pdoConnection) ?: false;
     }
 
      /**

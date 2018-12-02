@@ -34,27 +34,30 @@ function CheckInstallation(): bool
 {
     // Check whether there is a declared database,
     // and if the configuration for it is correct.
-    try
-    {
-        // Establish temporary connection to 
-        // the CMS core database. 
-        //
-        // Users never choose CMS database names, this is 
-        // all done automagically by core elsewhere.
+  try 
+  {
+    // Establish temporary connection to 
+    // the CMS core database. 
+    //
+    // Users never choose CMS database names, this is 
+    // all done automagically by core elsewhere.
 
-        // Does the database exist & are the configurations correct?
-        $tempConnect = new Database(Database::getCurrentDB());
-
-        // Does the database have population?
-        $tempConnect->getVersion();
-    }
+    // Are the configurations correct?
+    $tempConnect = new Database(Database::getCurrentDB());
+    $dbExists    = $tempConnect->connect(Database::getCurrentDB());
     
-    catch (Exception $e)
-    {
-        // Seems like one or more conditions are not met.
-        return false; 
-    }
-
+    // Does the database exist?
+    if (!$dbExists)
+        return false;
+        
+    // Does the database have population?
+    $tempConnect->getVersion();
+  }
+   catch (PDOException $f) 
+   {
+       // invalid Config or unpopulated Database
+        return false;
+   }
     // Else it means we are installed!
     return true;
 }
