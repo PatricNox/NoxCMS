@@ -21,6 +21,11 @@
         "symfony/yaml": "^4.2"
     },
     "autoload": {
-        "psr-4": {"NoxCMS\\": "noxcms/"}
+        "psr-4": {
+            "NoxCMS\\": "noxcms/"
+        },
+        "classmap": [
+            "noxcms/"
+        ]
     }
 }
