@@ -33,13 +33,13 @@ if (!$_GET) // index view (no subpage)
                     switch ($page)
                     {
                         case 'pages':
-                            $pages = $cms->query("SELECT * FROM routes WHERE route_id > 2", "noxcms");
+                            $pages = $cms->query("USE noxcms; SELECT * FROM routes WHERE route_id > 2", "noxcms");
                             require __DIR__._path('/view_pages.php');
                             break;
                         
                         default:
                             // Attach content from Database
-                            $posts = $cms->query("SELECT * FROM post_body", "noxcms");
+                            $posts = $cms->query("USE noxcms; SELECT * FROM post_body", "noxcms");
                             require __DIR__._path('/view_cms.php');
                             break;
                     }
