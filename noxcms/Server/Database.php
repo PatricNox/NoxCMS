@@ -152,10 +152,10 @@ class Database
      *
      * @return Bool
      */
-    public function query(String $query, String $targetDB = ""): array
+    public function query(String $query, String $database = ""): array
     {  
         // Establish temporary connection.
-        $dbConn = $this->Connect($targetDB);
+        $dbConn = $this->Connect($database);
 
         // Run the written query towards the Database.
         $query  = $dbConn->prepare($query);
