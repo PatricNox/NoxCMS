@@ -23,7 +23,7 @@ use NoxCMS\Server\Database;
 
 // Core CMS database initialisations
 // TODO: Split up the main DB into more databases.
-$cms = new Database('NoxCMS');
+$cms = new Database('noxcms');
 // new Database('NoxCMS_auth');
 
 // Define whether the CMS is installed or not
