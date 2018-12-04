@@ -16,7 +16,7 @@
 if (!defined('IN_NOXCMS'))
     exit;
 
-use NoxCMS\Client\Http\Request;
+use noxcms\Client\Http\Request;
 define('DS', DIRECTORY_SEPARATOR);
 require($_root . 'vendor'.DS.'autoload.' . $phpEx);
 require($_root . 'includes'.DS.'functions.' . $phpEx);
