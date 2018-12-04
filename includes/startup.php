@@ -16,8 +16,8 @@
 if (!defined('IN_NOXCMS'))
     exit;   
 
-use NoxCMS\Client\Http\Router;
-use NoxCMS\Server\Database;
+use noxcms\Client\Http\Router;
+use noxcms\Server\Database;
 \Patchwork\Utf8\Bootup::initAll(); 
 \Patchwork\Utf8\Bootup::filterRequestInputs(); 
 
