@@ -10,6 +10,6 @@
 
 declare(strict_types=1);
 define('IN_NOXCMS', true);
-$_root = (defined('NOXCMS_ROOT')) ? NOXCMS_ROOT : $_SERVER['DOCUMENT_ROOT'].'\\';
+$_root = (defined('NOXCMS_ROOT')) ? NOXCMS_ROOT : $_SERVER['DOCUMENT_ROOT']. DIRECTORY_SEPARATOR;
 $phpEx = substr(strrchr(__FILE__, '.'), 1);
 require($_root . 'common.' . $phpEx);

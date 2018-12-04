@@ -44,10 +44,10 @@ if (NOXCMS_INSTALLED === true)
 // User view, Admin view and the install page.
 $router = new Router([
     // DEFAULT
-    ''           => $_root.'/NoxCMS/controllers/web.php',
+    ''           => $_root.'noxcms/controllers/web.php',
     // ADMIN CONTROL PANEL
-    'admin'      => $_root.'/NoxCMS/controllers/acp.php',
+    'admin'      => $_root.'noxcms/controllers/acp.php',
     // INSTALLER
     # TODO: Route specify /install along with folder 
-    'installer'  => $_root.'/NoxCMS/controllers/installer.php',
+    'installer'  => $_root.'noxcms/controllers/installer.php',
 ]);
