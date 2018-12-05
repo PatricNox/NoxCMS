@@ -9,7 +9,7 @@
 *
 */
 
-require '../NoxCMS/Server/Database.php';
+require '../noxcms/Server/Database.php';
 use NoxCMS\Server\Database;
     
 if (strtoupper($_SERVER['REQUEST_METHOD']) !== 'POST')

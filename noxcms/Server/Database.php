@@ -139,7 +139,7 @@ class Database
         $dbConn = $this->Connect(Database::getCurrentDB());
 
         // Select our version from Database.
-        $query = $dbConn->prepare("SELECT `version` FROM `version` LIMIT 1");
+        $query = $dbConn->prepare("USE noxcms; SELECT `version` FROM `version` LIMIT 1");
         $result = $query->execute();
         if (!$result)
             throw new PDOException("Version not found.");

@@ -19,7 +19,7 @@ if (!$_GET) // index view (no subpage)
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="NoxCMS/admin/view/stylesheet.css">
+    <link rel="stylesheet" href="noxcms/admin/view/stylesheet.css">
     <title><?=$title?></title>
 </head>
 <body>

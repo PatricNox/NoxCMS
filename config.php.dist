@@ -14,9 +14,9 @@
 
 return array(
     'database' => [
-        'host'     => '192.168.0.134',
-        'username' => 'root',
-        'password' => 'root',
+        'host'     => 'hostname',
+        'username' => 'dbuser',
+        'password' => 'dbuserpassword',
         'port'     => 3306,
     ],
 );
