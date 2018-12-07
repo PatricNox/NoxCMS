@@ -48,7 +48,7 @@ $subconn = new Database("noxcms"); // First establish subconn
         exit;
         break;
      case 'INSERT':
-        $subconn->query("USE noxcms;
+        $subconn->query("
         INSERT INTO routes(route_name, route_path, controller, public, active)
         VALUES
             ('$pName', '/$pName', 'web', $isPublic, $isActive);
