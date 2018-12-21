@@ -50,24 +50,8 @@ $p = $_POST['upass'];
 // TODO: use dbuser/dbpass on DatabaseClass->configure method
 $install = new Database("noxcms");
 
-// Create Database
-$install->query(ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/create/database.sql"));
-
-// Account table
-$install->query(ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/create/account_table.sql"));
-
-// Account Access table
-$install->query(ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/create/account_access_table.sql"));
-
-// post_body table
-$install->query(ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/create/post_body_table.sql"));
-
-// routes table
-$install->query(ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/create/routes_table.sql"));
-
-// Version table
-$install->query(ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/create/version_table.sql"));
-
+// Create Database and the Account, Access, Post Body, Routes and Version tables.
+$install->query(ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/create/create.sql"));
 
 /** 
  * The Userinput process
