@@ -50,7 +50,7 @@ $p = $_POST['upass'];
 // TODO: use dbuser/dbpass on DatabaseClass->configure method
 $install = new Database("noxcms");
 
-// Create Database and the Account, Access, Post Body, Routes and Version tables.
+// Set up database structure - create database and tables.
 $install->query(ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/create/create.sql"));
 
 /** 
@@ -59,7 +59,6 @@ $install->query(ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/create/crea
 */
 // Todo: select id from account to insert _Access
 $install->query("
-    USE noxcms;
     -- VERSION & WEBNAME
     INSERT INTO version(version, hash, webname, stable)
     VALUES(1, 'c8fjdkjjfk434s', '$webname', 0);
