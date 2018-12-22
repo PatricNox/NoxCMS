@@ -33,7 +33,7 @@ $subconn = new Database("noxcms"); // First establish subconn
  switch ($type)
  {
      case 'DELETE':
-        $subconn->query("DELETE FROM post_body WHERE post_id=$postid;");
+        $subconn->query("DELETE FROM post_body WHERE post_id=$postid;", "noxcms");
         header("Location: /admin");
         exit;
         break;
@@ -41,7 +41,7 @@ $subconn = new Database("noxcms"); // First establish subconn
         $subconn->query("
             UPDATE post_body
             SET  post_title ='$post_title', content = '$post'
-            WHERE post_id='$postid';");
+            WHERE post_id='$postid';", "noxcms");
         header("Location: /admin");
         exit;
         break;    

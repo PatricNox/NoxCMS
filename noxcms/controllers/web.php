@@ -14,6 +14,6 @@ if (!NOXCMS_INSTALLED)
 <body>
 
 <?php
-$content = $cms->query("SELECT * FROM post_body");
-$links = $cms->query("SELECT * FROM routes WHERE route_id > 2");
+$content = $cms->query("SELECT * FROM post_body", "noxcms");
+$links = $cms->query("SELECT * FROM routes WHERE route_id > 2", "noxcms");
 require $_root._path('/theme/template/noxcms/setup.php');
