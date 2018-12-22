@@ -35,12 +35,12 @@ $subconn = new Database("noxcms"); // First establish subconn
  switch ($type)
  {
      case 'DELETE':
-        $subconn->query("USE noxcms; DELETE FROM routes WHERE route_id=$pageid;", "noxcms");
+        $subconn->query("DELETE FROM routes WHERE route_id=$pageid;", "noxcms");
         header("Location: /admin?pages");
         exit;
         break;
      case 'UPDATE':
-        $subconn->query("USE noxcms;
+        $subconn->query("
             UPDATE routes
             SET  route_name ='$pName'
             WHERE route_id='$pageid';", "noxcms");
@@ -48,7 +48,7 @@ $subconn = new Database("noxcms"); // First establish subconn
         exit;
         break;
      case 'INSERT':
-        $subconn->query("USE noxcms;
+        $subconn->query("
         INSERT INTO routes(route_name, route_path, controller, public, active)
         VALUES
             ('$pName', '/$pName', 'web', $isPublic, $isActive);

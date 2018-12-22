@@ -58,7 +58,6 @@ $install->query("
 
 // Account table
 $install->query("
-    USE noxcms;
     CREATE TABLE account(
     id int NOT NULL AUTO_INCREMENT,
     username varchar(32) NOT NULL,
@@ -73,7 +72,6 @@ $install->query("
 
 // Account Access table
 $install->query("
-    USE noxcms;
     CREATE TABLE account_access(
     id int NOT NULL,
     staffgroup tinyint(3) NOT NULL,
@@ -83,7 +81,6 @@ $install->query("
 
 // post_body table
 $install->query("
-    USE noxcms;
     CREATE TABLE post_body(
     post_id int AUTO_INCREMENT,
     author_id int(10) NOT NULL,
@@ -96,7 +93,6 @@ $install->query("
 
 // routes table
 $install->query("
-    USE noxcms;
     CREATE TABLE routes(
     route_id int NOT NULL AUTO_INCREMENT,
     route_name varchar(255),
@@ -110,7 +106,6 @@ $install->query("
 
 // Version table
 $install->query("
-    USE noxcms;
     CREATE TABLE version(
     version int NOT NULL,
     hash varchar(255) NOT NULL,
@@ -127,7 +122,6 @@ $install->query("
 */
 // Todo: select id from account to insert _Access
 $install->query("
-    USE noxcms;
     -- VERSION & WEBNAME
     INSERT INTO version(version, hash, webname, stable)
     VALUES(1, 'c8fjdkjjfk434s', '$webname', 0);
@@ -155,7 +149,6 @@ $install->query("
  * 
 */
 $install->query("
-    USE noxcms;
     -- WELCOME POST
     INSERT INTO post_body(author_id, post_title, content, public)
     VALUES
