@@ -10,6 +10,7 @@
 */
 
 require '../noxcms/Server/Database.php';
+require($_SERVER['DOCUMENT_ROOT']."/includes/functions.php");
 use NoxCMS\Server\Database;
     
 if (strtoupper($_SERVER['REQUEST_METHOD']) !== 'POST')
@@ -42,118 +43,37 @@ $p = $_POST['upass'];
 // TODO: Support "SQL updates"
 
 /** 
- * Creation of Database
+ * Set up database structure - create database, tables and fill initial data.
  * 
 */
 
 // TODO: use dbuser/dbpass on DatabaseClass->configure method
 $install = new Database("noxcms");
 
-// Create Database
-$install->query("
-    CREATE DATABASE IF NOT EXISTS noxcms;
-");
-
-// Account table
-$install->query("
-    CREATE TABLE account(
-    id int NOT NULL AUTO_INCREMENT,
-    username varchar(32) NOT NULL,
-    sha_pass_hash varchar(40),
-    sessionkey varchar(80),
-    reg_mail varchar(255),
-    user_mail varchar(255),
-    online tinyint(3),
-    PRIMARY KEY (id)
-    );
-");
-
-// Account Access table
-$install->query("
-    CREATE TABLE account_access(
-    id int NOT NULL,
-    staffgroup tinyint(3) NOT NULL,
-    PRIMARY KEY (id)
-    );
-");
-
-// post_body table
-$install->query("
-    CREATE TABLE post_body(
-    post_id int AUTO_INCREMENT,
-    author_id int(10) NOT NULL,
-    post_title varchar(255),
-    content varchar(255),
-    public tinyint(3),
-    PRIMARY KEY (post_id)
-    );
-");
-
-// routes table
-$install->query("
-    CREATE TABLE routes(
-    route_id int NOT NULL AUTO_INCREMENT,
-    route_name varchar(255),
-    route_path varchar(255) NOT NULL,
-    controller varchar(255) NOT NULL,
-    public tinyint(3),
-    active tinyint(3),
-    PRIMARY KEY (route_id)
-    );
-");
-
-// Version table
-$install->query("
-    CREATE TABLE version(
-    version int NOT NULL,
-    hash varchar(255) NOT NULL,
-    webname varchar(255) NOT NULL,
-    stable tinyint(3) NOT NULL,
-    PRIMARY KEY (version)
-    );
-");
-
-
-/** 
- * The Userinput process
- * 
-*/
-// Todo: select id from account to insert _Access
-$install->query("
+$version = sprintf("    
     -- VERSION & WEBNAME
     INSERT INTO version(version, hash, webname, stable)
-    VALUES(1, 'c8fjdkjjfk434s', '$webname', 0);
+    VALUES(1, 'c8fjdkjjfk434s', '%s', 0);", $webname);
 
+$adminAccount = sprintf("
     -- ADMIN ACCOUNT
     INSERT INTO account(username, sha_pass_hash)
-    VALUES('$u', '$p');
-    INSERT INTO account_access(id, staffgroup)
-    VALUES(1, 1);
+    VALUES('%s', '%s');", $u, $p);
 
-    -- DEFAULT ROUTES
-    INSERT INTO routes(route_name, route_path, controller, public, active)
-    VALUES
-        ('', '/', 'web', 1, 1),
-        ('admin', '/admin', 'acp', 1, 1),
-        ('home', '/', 'web', 1, 1),
-        ('register', '/register', 'web', 1, 1),
-        ('forum', '/forum', 'web', 1, 1)
-        ;
-");
+$accountAccess = "INSERT INTO account_access(id, staffgroup) VALUES(1, 1);";
 
+$filePaths = glob($_SERVER['DOCUMENT_ROOT']."/install/sql/*/*.sql");
 
-/** 
- * Welcome content for post_body
- * 
-*/
-$install->query("
-    -- WELCOME POST
-    INSERT INTO post_body(author_id, post_title, content, public)
-    VALUES
-    (1, 'Welcome', 'Welcome to NoxCMS!\n\n to begin, visit /admin', 1),
-    (1, 'About', 'Did you know that this CMS is made by github.com/PatricNox?', 1),
-    (1, 'Fun fact', 'There are no third party libraries used so far whatsoever! \n\neven though it surely would\'ve helped alot..', 1);
-    ");
+$statementArray = array(
+    ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/database.sql") // We must ensure the database is created first.
+);
+
+foreach($filePaths as $path)
+    $statementArray[] = ParseSQLFile($path);
+
+array_push($statementArray, $version, $adminAccount, $accountAccess);
+
+$install->ProcessTransaction($statementArray);
 
 $p = $_SERVER['DOCUMENT_ROOT'];
 header("Location: /");

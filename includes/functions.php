@@ -61,3 +61,15 @@ function CheckInstallation(): bool
     // Else it means we are installed!
     return true;
 }
+
+/**
+* Function to parse SQL files.
+* Returns queries stripped of comments.
+*
+* @return String
+*/
+function ParseSQLFile($file) : String
+{
+     $query = @fread(@fopen($file, 'r'), @filesize($file));
+     return $query;
+}
