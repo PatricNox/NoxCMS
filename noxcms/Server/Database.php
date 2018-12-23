@@ -179,7 +179,7 @@ class Database
         {
             $dbConn->beginTransaction();
 
-            // Prepare all of the queries stored in the query holder.
+            // Prepare all of the statements stored in the statement array.
             foreach ($statementArray as $statement)
             {
                 $stmt = $dbConn->prepare($statement);
