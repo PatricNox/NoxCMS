@@ -5,5 +5,5 @@ CREATE TABLE `routes` (
     `controller` varchar(255) NOT NULL,
     `public` tinyint(3),
     `active` tinyint(3),
-    PRIMARY KEY (route_id)
+    PRIMARY KEY (`route_id`)
 );

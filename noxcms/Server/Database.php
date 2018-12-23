@@ -180,9 +180,9 @@ class Database
             $dbConn->beginTransaction();
 
             // Prepare all of the statements stored in the statement array.
-            foreach ($statementArray as $statement)
+            foreach ($statementArray as $arrayItem)
             {
-                $stmt = $dbConn->prepare($statement);
+                $stmt = $dbConn->prepare($arrayItem);
                 $stmt->execute();
             }
 
