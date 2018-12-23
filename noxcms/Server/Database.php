@@ -165,5 +165,34 @@ class Database
         }
         
         return $query->fetchAll(PDO::FETCH_ASSOC);;
+
+     /**
+     * Begins and commits a transaction with the statements provided.
+     *
+     * @return Void
+     */
+    public function ProcessTransaction($statementArray) : void
+    {
+        $dbConn = $this->Connect(Database::getCurrentDB());
+
+        try
+        {
+            $dbConn->beginTransaction();
+
+            // Prepare all of the queries stored in the query holder.
+            foreach ($statementArray as $statement)
+            {
+                $stmt = $dbConn->prepare($statement);
+                $stmt->execute();
+            }
+
+            $dbConn->commit();
+        }
+        catch(PDOException $e)
+        {
+            $dbConn->rollback();
+            throw new PDOException($e->getMessage());
+        }
+
     }
 }

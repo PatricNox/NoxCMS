@@ -43,55 +43,39 @@ $p = $_POST['upass'];
 // TODO: Support "SQL updates"
 
 /** 
- * Creation of Database
+ * Set up database structure - create database, tables and fill initial data.
  * 
 */
 
 // TODO: use dbuser/dbpass on DatabaseClass->configure method
 $install = new Database("noxcms");
 
-// Set up database structure - create database and tables.
-$install->query(ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/create/database.sql"));
-
-// Account table
-$install->query(ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/create/account_table.sql"));
-
-// Account Access table
-$install->query(ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/create/account_access_table.sql"));
-
-// post_body table
-$install->query(ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/create/post_body_table.sql"));
-
-// routes table
-$install->query(ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/create/routes_table.sql"));
-
-// Version table
-$install->query(ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/create/version_table.sql"));
-
-
-/** 
- * The Userinput process
- * 
-*/
-// Todo: select id from account to insert _Access
-$install->query("
+$version = sprintf("    
     -- VERSION & WEBNAME
     INSERT INTO version(version, hash, webname, stable)
-    VALUES(1, 'c8fjdkjjfk434s', '$webname', 0);
+    VALUES(1, 'c8fjdkjjfk434s', '%s', 0);", $webname);
 
+$adminAccount = sprintf("
     -- ADMIN ACCOUNT
     INSERT INTO account(username, sha_pass_hash)
-    VALUES('$u', '$p');
-    INSERT INTO account_access(id, staffgroup)
-    VALUES(1, 1);
-");
+    VALUES('%s', '%s');", $u, $p);
 
+$accountAccess = "INSERT INTO account_access(id, staffgroup) VALUES(1, 1);";
 
-/** 
- * Welcome content for post_body
- * 
-*/
-$install->query(ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/base/base_content.sql"));
+$statementArray = array(
+    ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/database.sql"),
+    ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/auth/account_table.sql"),
+    ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/auth/account_access_table.sql"),
+    ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/base/post_body_table.sql"),
+    ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/base/routes_table.sql"),
+    ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/version/version_table.sql"),
+    ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/base/base_content.sql"),
+    $version,
+    $adminAccount,
+    $accountAccess
+);
+
+$install->ProcessTransaction($statementArray);
 
 $p = $_SERVER['DOCUMENT_ROOT'];
 header("Location: /");
