@@ -62,18 +62,16 @@ $adminAccount = sprintf("
 
 $accountAccess = "INSERT INTO account_access(id, staffgroup) VALUES(1, 1);";
 
+$filePaths = glob($_SERVER['DOCUMENT_ROOT']."/install/sql/*/*.sql");
+
 $statementArray = array(
-    ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/database.sql"),
-    ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/auth/account_table.sql"),
-    ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/auth/account_access_table.sql"),
-    ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/base/post_body_table.sql"),
-    ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/base/routes_table.sql"),
-    ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/version/version_table.sql"),
-    ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/base/base_content.sql"),
-    $version,
-    $adminAccount,
-    $accountAccess
+    ParseSQLFile($_SERVER['DOCUMENT_ROOT']."/install/sql/database.sql") // We must ensure the database is created first.
 );
+
+foreach($filePaths as $path)
+    $statementArray[] = ParseSQLFile($path);
+
+array_push($statementArray, $version, $adminAccount, $accountAccess);
 
 $install->ProcessTransaction($statementArray);
 
