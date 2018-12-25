@@ -22,22 +22,35 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) !== 'POST')
 // TODO: using Errorhandler class and do poper sanity check on fields.
 // TODO: Sanity check tables for input & potentional existings
 
+$errorMessages= array();
+
 // General Settings
 if (empty($_POST['webname']) || empty($_POST['prefix']))
-    die("temp error display: general settings fields not filled out");
+    $errorMessages[] = "ERROR: The website name or website prefix have not been set. Check the General Settings section and make sure you have filled all fields.";
 
 // Configuration Settings
 if (empty($_POST['dbuser']) || empty($_POST['dbpass']))
-    die("temp error display: Configuration settings fields not filled out");
+	$errorMessages[] = "ERROR: The database credentials have not been set. Check the Configuration Settings tab and make sure you have filled all fields.";
 
 // Configuration Settings
-if (empty($_POST['uuser']) || empty($_POST['upass'] || empty($_POST['upass2'])))
-    die("temp error display: Configuration settings fields not filled out");
+if (empty($_POST['uuser']) || empty($_POST['upass']) || empty($_POST['upass2']))
+	$errorMessages[] = "ERROR: The user password or username have not been set. Check the Configuration Settings tab and make sure you have filled all fields.";
+else if (strcmp($_POST['upass'], $_POST['upass2']))
+	$errorMessages[] = "ERROR: The password confirmation field does not match the password provided.";
+
+if (!empty($errorMessages))
+{
+    foreach($errorMessages as $message)
+    {
+        echo '<p>'.$message.'</p>';
+    }
+    die();
+}
 
 // TODO: proper sanitizing declaration
 $webname = $_POST['webname'];
-$u = $_POST['uuser'];
-$p = $_POST['upass'];
+$username = $_POST['uuser'];
+$userpassword = $_POST['upass'];
 // TODO: Run table creations from a file
 // TODO: Support "SQL updates"
 
@@ -126,7 +139,7 @@ $install->query("
 
     -- ADMIN ACCOUNT
     INSERT INTO account(username, sha_pass_hash)
-    VALUES('$u', '$p');
+    VALUES('$username', '$userpassword');
     INSERT INTO account_access(id, staffgroup)
     VALUES(1, 1);
 
@@ -155,5 +168,4 @@ $install->query("
     (1, 'Fun fact', 'There are no third party libraries used so far whatsoever! \n\neven though it surely would\'ve helped alot..', 1);
     ");
 
-$p = $_SERVER['DOCUMENT_ROOT'];
 header("Location: /");
