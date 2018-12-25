@@ -26,15 +26,15 @@ $errorMessages= array();
 
 // General Settings
 if (empty($_POST['webname']) || empty($_POST['prefix']))
-    $errorMessages[] = "ERROR: The website name or website prefix have not been set. Check the General Settings section and make sure you have filled all fields.";
+    $errorMessages[] = "ERROR: The website name or website prefix were not set. Check the General Settings section and make sure you have filled all fields.";
 
 // Configuration Settings
 if (empty($_POST['dbuser']) || empty($_POST['dbpass']))
-	$errorMessages[] = "ERROR: The database credentials have not been set. Check the Configuration Settings tab and make sure you have filled all fields.";
+	$errorMessages[] = "ERROR: The database credentials were not set. Check the Configuration section and make sure you have filled all fields.";
 
 // Configuration Settings
 if (empty($_POST['uuser']) || empty($_POST['upass']))
-	$errorMessages[] = "ERROR: The user password or username have not been set. Check the Configuration Settings tab and make sure you have filled all fields.";
+	$errorMessages[] = "ERROR: The user password or username were not set. Check the Configuration section and make sure you have filled all fields.";
 else if (strcmp($_POST['upass'], $_POST['upass2']))
 	$errorMessages[] = "ERROR: The password confirmation field does not match the password provided.";
 
