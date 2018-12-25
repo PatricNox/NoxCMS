@@ -33,7 +33,7 @@ if (empty($_POST['dbuser']) || empty($_POST['dbpass']))
 	$errorMessages[] = "ERROR: The database credentials have not been set. Check the Configuration Settings tab and make sure you have filled all fields.";
 
 // Configuration Settings
-if (empty($_POST['uuser']) || empty($_POST['upass']) || empty($_POST['upass2']))
+if (empty($_POST['uuser']) || empty($_POST['upass']))
 	$errorMessages[] = "ERROR: The user password or username have not been set. Check the Configuration Settings tab and make sure you have filled all fields.";
 else if (strcmp($_POST['upass'], $_POST['upass2']))
 	$errorMessages[] = "ERROR: The password confirmation field does not match the password provided.";
